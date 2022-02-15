@@ -21,8 +21,22 @@ public class UserDaoImpl implements UserDao {
         return list;
     }
 
+    @Transactional
     @Override
     public void addUser(User user) {
         entityManager.persist(user);
+    }
+
+    @Transactional
+    @Override
+    public void deleteUser(User user) {
+        entityManager.remove(user);
+    }
+
+    @Transactional
+    @Override
+    public void deleteUserById(long id) {
+        User user = entityManager.find(User.class, id);
+        entityManager.remove(user);
     }
 }
