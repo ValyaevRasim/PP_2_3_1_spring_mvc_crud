@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/user}" th:object="${user}">
+    <div>
+        <label for="firstName">FirstName</label>
+        <input name="text" th:field="*{firstName}" id="firstName"/>
+
+        <br/>
+        <br/>
+
+        <label for="lastName">LastName</label>
+        <input name="text" th:field="*{lastName}" id="lastName"/>
+
+        <br/>
+        <br/>
+
+        <label for="age">Age</label>
+        <input name="text" th:field="*{age}" id="age"/>
+
+        <br/>
+        <br/>
+
+        <input type="submit" value="add User"/>
+
+    </div>
+    <!--
+     <form:form method="POST" action="/user" modelAttribute="users">
+    <label for="firstName">FirstName</label>
+    <input name="firstName" type="text" id="firstName"/>
+
+    <br>
+
+    <label for="lastName">LastName</label>
+    <input name="lastName" type="text" id="lastName"/>
+
+    <br>
+
+    <label for="age">Age</label>
+    <input name="age" type="text" id="age"/>
+
+    <br>
+
+    <input type="submit" value="add User"/>
+-->
+
+    <!--    FirstName <form:input path="firstName"/>-->
+    <!--    <br> <br>-->
+
+    <!--    LastName <form:input path="lastName"/>-->
+    <!--    <br> <br>-->
+
+    <!--    Age <form:input path="age"/>-->
+    <!--    <br> <br>-->
+
+    <!--    <input type="submit" value="add User">-->
+</form>
+</body>
+</html>

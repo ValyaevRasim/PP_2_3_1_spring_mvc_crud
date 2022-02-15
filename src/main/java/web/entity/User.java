@@ -10,42 +10,38 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "last_name")
+    @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "age")
+    private int age;
 
     public User() {
     }
 
-    public User(String email, String name, String lastName) {
-        this.email = email;
-        this.name = name;
+    public User(String firstName, String lastName, int age) {
+        this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -54,5 +50,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
