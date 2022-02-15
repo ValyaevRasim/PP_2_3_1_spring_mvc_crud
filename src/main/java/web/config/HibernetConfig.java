@@ -18,8 +18,8 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "web")
-public class AppConfig {
+//@ComponentScan(value = "web")
+public class HibernetConfig {
 
    @Autowired
    private Environment env;
