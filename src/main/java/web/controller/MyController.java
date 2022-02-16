@@ -3,17 +3,14 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import web.entity.User;
 import web.service.UserService;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/")
 public class MyController {
 
     private final UserService userService;
@@ -23,12 +20,11 @@ public class MyController {
         this.userService = userService;
     }
 
-    public String showFirstView() {
-        return "first-view";
-    }
 
-    @RequestMapping("/allUsers")
+
+    @RequestMapping("/")
     public String showAllUsers(Model model) {
+        System.out.println("showAllUsers/allUsers");
         List<User> allUsers = userService.getAllUsers();
         model.addAttribute("allUsers", allUsers);
         return "allUsers";
@@ -36,15 +32,42 @@ public class MyController {
 
     @RequestMapping("/new")
     public String addNewUser(Model model) {
+        System.out.println("addNewUser/new");
         model.addAttribute("user", new User());
         return "newUser";
     }
 
     @PostMapping()
     public String createNewUser(@ModelAttribute("user") User user) {
+        System.out.println("createNewUser");
         userService.addUser(user);
-        return "redirect:/user/allUsers";
+        return "redirect:/";
     }
+
+    @GetMapping("/updateUser/{id}")
+    public String updateUser(@PathVariable("id") int id, Model model){
+        System.out.println("updateUser/updateUser");
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "editUser";
+    }
+
+    @PatchMapping("/{id}")
+    public String edit(Model model, @PathVariable("id") int id, User user) {
+        System.out.println("edit");
+        userService.updateUser(id,user);
+        return "redirect:/";
+    }
+
+
+//    @GetMapping("/updateUser/{id}")
+    @RequestMapping("/updateUser")
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") long id) {
+        System.out.println("update" + user.toString());
+        userService.updateUser(id, user);
+        return "editUser";
+    }
+
 /*
     @PostMapping()
     public String create(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,

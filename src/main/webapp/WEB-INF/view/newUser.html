@@ -6,29 +6,29 @@
     <title></title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/user}" th:object="${user}">
-    <div>
-        <label for="firstName">FirstName</label>
+<form th:method="POST" th:action="@{/}" th:object="${user}">
+<!--    <div>-->
+        <label for="firstName">имя</label>
         <input name="text" th:field="*{firstName}" id="firstName"/>
 
         <br/>
         <br/>
 
-        <label for="lastName">LastName</label>
+        <label for="lastName">фамилия</label>
         <input name="text" th:field="*{lastName}" id="lastName"/>
 
         <br/>
         <br/>
 
-        <label for="age">Age</label>
+        <label for="age">возраст</label>
         <input name="text" th:field="*{age}" id="age"/>
 
         <br/>
         <br/>
 
-        <input type="submit" value="add User"/>
+        <input type="submit" value="добавить пользователя"/>
 
-    </div>
+<!--    </div>-->
     <!--
      <form:form method="POST" action="/user" modelAttribute="users">
     <label for="firstName">FirstName</label>

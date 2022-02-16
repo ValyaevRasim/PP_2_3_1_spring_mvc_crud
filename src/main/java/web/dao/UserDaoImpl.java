@@ -13,30 +13,41 @@ public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
     @Override
     public List<User> getAllUsers() {
-        TypedQuery<User> query = entityManager.createQuery("from User", User.class);
+        TypedQuery<User> query = entityManager.createQuery("select usr from User usr", User.class);
         List<User> list = query.getResultList();
         return list;
     }
 
-    @Transactional
+    @Override
+    public User getUserById(long id) {
+        return entityManager.find(User.class, id);
+    }
+
     @Override
     public void addUser(User user) {
         entityManager.persist(user);
     }
 
-    @Transactional
     @Override
     public void deleteUser(User user) {
         entityManager.remove(user);
     }
 
-    @Transactional
     @Override
     public void deleteUserById(long id) {
         User user = entityManager.find(User.class, id);
         entityManager.remove(user);
+    }
+
+    @Override
+    public void updateUser(long id, User userUpdate) {
+        User user = getUserById(id);
+        System.out.println("UserDaoImpl");
+        System.out.println(user.toString());
+        user.setFirstName(userUpdate.getFirstName());
+        user.setLastName(userUpdate.getLastName());
+        user.setAge(userUpdate.getAge());
     }
 }
