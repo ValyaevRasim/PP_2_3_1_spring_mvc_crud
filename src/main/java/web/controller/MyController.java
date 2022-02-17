@@ -21,7 +21,7 @@ public class MyController {
     }
 
 
-
+    // начальная страница
     @RequestMapping("/")
     public String showAllUsers(Model model) {
         System.out.println("showAllUsers/allUsers");
@@ -30,6 +30,7 @@ public class MyController {
         return "allUsers";
     }
 
+    // добавление нового пользователяю, используем 2 метода
     @RequestMapping("/new")
     public String addNewUser(Model model) {
         System.out.println("addNewUser/new");
@@ -44,41 +45,34 @@ public class MyController {
         return "redirect:/";
     }
 
+    //    обновление данных пользователя, используем 2 метода
     @GetMapping("/updateUser/{id}")
-    public String updateUser(@PathVariable("id") int id, Model model){
+    public String updateUser(@PathVariable("id") long id, Model model){
         System.out.println("updateUser/updateUser");
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "editUser";
     }
 
-    @PatchMapping("/{id}")
-    public String edit(Model model, @PathVariable("id") int id, User user) {
+    @RequestMapping("/{id}")
+    public String edit(@PathVariable("id") long id, User user) {
         System.out.println("edit");
         userService.updateUser(id,user);
         return "redirect:/";
     }
 
-
-//    @GetMapping("/updateUser/{id}")
-    @RequestMapping("/updateUser")
-    public String update(@ModelAttribute("user") User user, @PathVariable("id") long id) {
-        System.out.println("update" + user.toString());
-        userService.updateUser(id, user);
-        return "editUser";
+//    удаление пользователя, используем 2 метода
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") long id){
+        System.out.println("updateUser/updateUser");
+        userService.deleteUserById(id);
+        return "redirect:/";
     }
-
-/*
-    @PostMapping()
-    public String create(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-                         @RequestParam("age") int age, Model model) {
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setAge(age);
-
-        model.addAttribute("user", user);
-        model.addAttribute("user", new User());
-        return "allUsers";
-    }*/
+//
+//    @RequestMapping("/{id}")
+//    public String edit(@PathVariable("id") long id, User user) {
+//        System.out.println("edit");
+//        userService.updateUser(id,user);
+//        return "redirect:/";
+//    }
 }

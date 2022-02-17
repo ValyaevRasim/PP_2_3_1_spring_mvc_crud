@@ -6,21 +6,28 @@
 </head>
 <body>
 <h1>Обновление данных пользователя</h1>
-<form action="#" th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+<!--<form action="#" th:method="PATCH" th:action="@{/{id}}" th:object="${user}">-->
     <div>
-        <label for="firstName">FirstName</label>
+        <label for="id">id</label>
+        <input name="text" th:field="*{id}" id="id"/>
+
+        <br/>
+        <br/>
+
+        <label for="firstName">имя</label>
         <input name="text" th:field="*{firstName}" id="firstName"/>
 
         <br/>
         <br/>
 
-        <label for="lastName">LastName</label>
+        <label for="lastName">фамилия</label>
         <input name="text" th:field="*{lastName}" id="lastName"/>
 
         <br/>
         <br/>
 
-        <label for="age">Age</label>
+        <label for="age">возраст</label>
         <input name="text" th:field="*{age}" id="age"/>
 
         <br/>

@@ -26,7 +26,12 @@
             <td th:utext="${msg.age}">index</td>
             <td>
                 <form th:action="@{'updateUser/'+${msg.getId()}}">
-                    <input type="submit" class="buttonEdit" value="update"/>
+                    <input type="submit" class="buttonEdit" value="обновить"/>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{'deleteUser/'+${msg.getId()}}">
+                    <input type="submit" class="buttonDelete" value="удалить"/>
                 </form>
             </td>
         </tr>
