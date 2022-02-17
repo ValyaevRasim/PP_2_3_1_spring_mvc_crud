@@ -8,19 +8,20 @@
 <body>
 <form th:method="POST" th:action="@{/}" th:object="${user}">
     <label for="firstName">имя</label>
-    <input name="text" th:field="*{firstName}" id="firstName"/>
+    <input name="text" th:field="*{firstName}" id="firstName" type="text"/>
 
     <br/>
     <br/>
 
     <label for="lastName">фамилия</label>
-    <input name="text" th:field="*{lastName}" id="lastName"/>
+    <input name="text" th:field="*{lastName}" id="lastName" type="text"/>
 
     <br/>
     <br/>
 
     <label for="age">возраст</label>
-    <input name="text" th:field="*{age}" id="age"/>
+    <input name="age" th:field="*{age}" id="age" type="number"
+        min="1" max="100" required />
 
     <br/>
     <br/>
