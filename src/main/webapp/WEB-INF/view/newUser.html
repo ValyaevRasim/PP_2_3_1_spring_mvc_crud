@@ -7,58 +7,26 @@
 </head>
 <body>
 <form th:method="POST" th:action="@{/}" th:object="${user}">
-<!--    <div>-->
-        <label for="firstName">имя</label>
-        <input name="text" th:field="*{firstName}" id="firstName"/>
+    <label for="firstName">имя</label>
+    <input name="text" th:field="*{firstName}" id="firstName"/>
 
-        <br/>
-        <br/>
+    <br/>
+    <br/>
 
-        <label for="lastName">фамилия</label>
-        <input name="text" th:field="*{lastName}" id="lastName"/>
+    <label for="lastName">фамилия</label>
+    <input name="text" th:field="*{lastName}" id="lastName"/>
 
-        <br/>
-        <br/>
+    <br/>
+    <br/>
 
-        <label for="age">возраст</label>
-        <input name="text" th:field="*{age}" id="age"/>
+    <label for="age">возраст</label>
+    <input name="text" th:field="*{age}" id="age"/>
 
-        <br/>
-        <br/>
+    <br/>
+    <br/>
 
-        <input type="submit" value="добавить пользователя"/>
+    <input type="submit" value="добавить пользователя"/>
 
-<!--    </div>-->
-    <!--
-     <form:form method="POST" action="/user" modelAttribute="users">
-    <label for="firstName">FirstName</label>
-    <input name="firstName" type="text" id="firstName"/>
-
-    <br>
-
-    <label for="lastName">LastName</label>
-    <input name="lastName" type="text" id="lastName"/>
-
-    <br>
-
-    <label for="age">Age</label>
-    <input name="age" type="text" id="age"/>
-
-    <br>
-
-    <input type="submit" value="add User"/>
--->
-
-    <!--    FirstName <form:input path="firstName"/>-->
-    <!--    <br> <br>-->
-
-    <!--    LastName <form:input path="lastName"/>-->
-    <!--    <br> <br>-->
-
-    <!--    Age <form:input path="age"/>-->
-    <!--    <br> <br>-->
-
-    <!--    <input type="submit" value="add User">-->
 </form>
 </body>
 </html>

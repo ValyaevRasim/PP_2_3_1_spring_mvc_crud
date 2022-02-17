@@ -68,11 +68,4 @@ public class MyController {
         userService.deleteUserById(id);
         return "redirect:/";
     }
-//
-//    @RequestMapping("/{id}")
-//    public String edit(@PathVariable("id") long id, User user) {
-//        System.out.println("edit");
-//        userService.updateUser(id,user);
-//        return "redirect:/";
-//    }
 }

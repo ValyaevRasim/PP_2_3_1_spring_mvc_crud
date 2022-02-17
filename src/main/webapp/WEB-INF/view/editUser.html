@@ -7,7 +7,6 @@
 <body>
 <h1>Обновление данных пользователя</h1>
 <form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
-<!--<form action="#" th:method="PATCH" th:action="@{/{id}}" th:object="${user}">-->
     <div>
         <label for="id">id</label>
         <input name="text" th:field="*{id}" id="id"/>
